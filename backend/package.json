@@ -1,0 +1,25 @@
+{
+  "name": "firefox-mail-tracker-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Firefox Mail Tracker extension",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "keywords": [
+    "email",
+    "tracking",
+    "firefox",
+    "extension"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
