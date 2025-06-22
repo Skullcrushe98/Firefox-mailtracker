@@ -15,6 +15,18 @@ app.use(express.json());
 const trackingData = new Map();
 const openedEmails = new Map();
 
+// Root route handler
+app.get("/", (req, res) => {
+  res.json({
+    message: "Firefox Mail Tracker Server is running",
+    endpoints: {
+      trackingPixel: "/track/:trackingId",
+      checkStatus: "/api/tracking/:trackingId",
+      healthCheck: "/health"
+    }
+  });
+});
+
 // Serve tracking pixel
 app.get("/track/:trackingId", (req, res) => {
     const { trackingId } = req.params;
@@ -74,8 +86,8 @@ app.get("/api/opens", (req, res) => {
 
 // API to store tracking data
 app.post("/api/track", (req, res) => {
-    const trackingData = req.body;
-    trackingData.set(trackingData.id, trackingData);
+    const data = req.body;
+    trackingData.set(data.id, data);
     res.json({ status: "success" });
 });
 
